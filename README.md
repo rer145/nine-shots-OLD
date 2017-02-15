@@ -1,2 +1,2 @@
-# redesigned-waffle
-Nine shot randomizer for golf training
+# nine-shots (codename redesigned-waffle)
+Nine shot golf training program
