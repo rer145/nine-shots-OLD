@@ -1,2 +1,2 @@
-# nine-shots
-Nine shot golf training program
+# redesigned-waffle
+Nine shot randomizer for golf training

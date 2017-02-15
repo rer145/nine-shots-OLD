@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#263238">
+        <meta name="mobile-web-app-capable" content="yes">
+
+        <title>Nine Shots</title>
+
+        <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="styles/materialize.min.css"  media="screen,projection"/>
+        
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Nine Shots">
+        <!--<meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">-->
+        <meta name="msapplication-TileColor" content="#263238">
+        <meta name="msapplication-config" content="browserconfig.xml">
+
+        <!--<link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+        <link rel="mask-icon" href="images/icons/safari-pinned-tab.svg" color="#c01d2e">
+        <link rel="icon" type="image/png" href="images/icons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="images/icons/favicon-194x194.png" sizes="194x194">
+        <link rel="icon" type="image/png" href="images/icons/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="images/icons/favicon-16x16.png" sizes="16x16">
+        <link rel="shortcut icon" href="favicon.ico">-->
+
+        <link rel="canonical" href="https://nine-shots.firebaseapp.com/">
+        <link rel="manifest" href="manifest.json">
+        
+    </head>
+
+    <body id="body" class="blue-grey lighten-4 white-text">
+
+        <div class="navbar-fixed">
+            <nav id="nav-main" class="blue-grey darken-4">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo center">Nine Shots</a>
+                    <ul id="nav-mobile-left" class="left">
+                        <li><a id="btn-nav-stats"><i class="material-icons">person</i></a></li>
+                    </ul>
+                    <ul id="nav-mobile-right" class="right">
+                        <li><a id="btn-nav-settings"><i class="material-icons">settings</i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <main class="main" id="main">
+
+            <div id="view-splash" class="view">
+                <div class="valign-wrapper center-align">
+                    <h1 class="valign black-text">Nine Shots</h1>
+                </div>
+            </div>
+
+            <div id="view-login" class="view" hidden>
+                google auth
+            </div>
+
+            <div id="view-menu" class="view" hidden>
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <a id="btn-menu-test" class="btn waves-effect waves-light blue-grey">Test Mode</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <a id="btn-menu-stats" class="btn waves-effect waves-light blue-grey">Stats</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <a id="btn-menu-settings" class="btn waves-effect waves-light blue-grey">Settings</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-settings" class="view" hidden>
+                
+            </div>
+
+            <div id="view-stats" class="view" hidden>
+
+            </div>
+
+            <div id="view-practice" class="view" hidden>
+
+            </div>
+
+            <div id="view-test" class="view" hidden>
+
+            </div>
+        
+        </main>
+
+        <script type="text/javascript" src="scripts/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="scripts/materialize.min.js"></script>
+        <script type="text/javascript" src="scripts/firebase-3.6.8.min.js"></script>
+        <script type="text/javascript" src="scripts/app.js"></script>
+    </body>
+</html>
