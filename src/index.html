@@ -29,12 +29,17 @@
 
         <link rel="canonical" href="https://nine-shots.firebaseapp.com/">
         <link rel="manifest" href="manifest.json">
-        
+
+        <style type="text/css">
+            #nav {
+                margin-bottom: 15px;
+            }
+        </style>
     </head>
 
     <body id="body" class="blue-grey lighten-4 white-text">
 
-        <div class="navbar-fixed">
+        <div id="nav" class="navbar-fixed">
             <nav id="nav-main" class="blue-grey darken-4">
                 <div class="nav-wrapper">
                     <a href="#" class="brand-logo center">Nine Shots</a>
@@ -48,20 +53,30 @@
             </nav>
         </div>
 
-        <main class="main" id="main">
-
-            <div id="view-splash" class="view">
-                <div class="valign-wrapper center-align">
-                    <h1 class="valign black-text">Nine Shots</h1>
+        <main class="main center-align" id="main">
+            <div class="container">
+                <div id="view-splash" class="view">
+                    <h1 class="black-text">Nine Shots</h1>
                 </div>
-            </div>
 
-            <div id="view-login" class="view" hidden>
-                google auth
-            </div>
+                <div id="view-login" class="view" hidden>
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <button class="btn waves-effect waves-light blue-grey" id="google-sign-in">Sign in with Google</button>
+                        </div>
+                    </div>
+                </div>
 
-            <div id="view-menu" class="view" hidden>
-                <div class="container">
+                <div id="view-menu" class="view" hidden>
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+                            <div>Firebase auth <code>currentUser</code> object value:</div>
+                            <pre><code id="quickstart-account-details">null</code></pre>
+                            <div>Google OAuth Access Token:</div>
+                            <pre><code id="quickstart-oauthtoken">null</code></pre>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col s12 center-align">
                             <a id="btn-menu-test" class="btn waves-effect waves-light blue-grey">Test Mode</a>
@@ -78,24 +93,23 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="view-settings" class="view" hidden>
+                    
+                </div>
+
+                <div id="view-stats" class="view" hidden>
+
+                </div>
+
+                <div id="view-practice" class="view" hidden>
+
+                </div>
+
+                <div id="view-test" class="view" hidden>
+
+                </div>
             </div>
-
-            <div id="view-settings" class="view" hidden>
-                
-            </div>
-
-            <div id="view-stats" class="view" hidden>
-
-            </div>
-
-            <div id="view-practice" class="view" hidden>
-
-            </div>
-
-            <div id="view-test" class="view" hidden>
-
-            </div>
-        
         </main>
 
         <script type="text/javascript" src="scripts/jquery-3.1.1.min.js"></script>

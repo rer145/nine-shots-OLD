@@ -10,6 +10,7 @@
         messagingSenderId: "836956556874"
     };
     firebase.initializeApp(fbConfig);
+    //firebase.database().getInstance().setPersistenceEnabled(true);
 
 
     var app = {
@@ -50,10 +51,71 @@
         if (app.isLoading) {
             app.isLoading = false;
 
+            firebase.auth().getRedirectResult().then(function(result) {
+                if (result.credential) {
+                    var token = result.credential.accessToken;
+                    //app.container.querySelector('#quickstart-oauthtoken').textContent = token;
+                    console.log('AUTH TOKEN: ' + token);
+                } else {
+                    //app.container.querySelector('#quickstart-oauthtoken').textContent = 'null';
+                }
+
+                var user = result.user;
+            }).catch(function(error) {
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              var email = error.email;
+              var credential = error.credential;
+              if (errorCode === 'auth/account-exists-with-different-credential') {
+                  alert('You are already signed up with another provider.');
+              } else {
+                  console.error(error);
+              }
+            });
+
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    //user is signed in
+                    var displayName = user.displayName;
+                    var email = user.email;
+                    var emailVerified = user.emailVerified;
+                    var photoURL = user.photoURL;
+                    var isAnonymous = user.isAnonymous;
+                    var uid = user.uid;
+                    var providerData = user.providerData;
+
+                    //display data
+                    app.container.querySelector('#quickstart-sign-in-status').textContent = "Signed in";
+                    //app.container.querySelector('#quickstart-account-details').textContent = JSON.stringify(user, null, '   ');
+                    console.log(JSON.stringify(user, null, '   '));
+                    
+                    app.showMenu();
+                } else {
+                    //user is signed out
+                    app.container.querySelector('#quickstart-sign-in-status').textContent = "Signed out";
+                    app.container.querySelector('#quickstart-account-details').textContent = 'null';
+                    app.container.querySelector('#quickstart-oauthtoken').textContent = 'null';
+                    app.showLogin();
+                }
+            });
+
+            app.container.querySelector('#google-sign-in').addEventListener('click', app.toggleSignIn, false);
+
             //check user authentication
             //if not, show login
             // else show menu
             //app.showMenu();
+        }
+    };
+
+    app.toggleSignIn = function() {
+        if (!firebase.auth().currentUser) {
+            var provider = new firebase.auth.GoogleAuthProvider();
+            provider.addScope('https://www.googleapis.com/auth/plus.login');
+            firebase.auth().signInWithRedirect(provider);
+        } else {
+            firebase.auth().signOut();
+            app.showLogin();
         }
     };
 
