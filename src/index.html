@@ -53,10 +53,11 @@
             </nav>
         </div>
 
-        <main class="main center-align" id="main">
+        <main class="main center-align black-text" id="main">
             <div class="container">
                 <div id="view-splash" class="view">
-                    <h1 class="black-text">Nine Shots</h1>
+                    <h1>Nine Shots</h1>
+                    <h4>Loading</h4>
                 </div>
 
                 <div id="view-login" class="view" hidden>
@@ -68,15 +69,6 @@
                 </div>
 
                 <div id="view-menu" class="view" hidden>
-                    <div class="row">
-                        <div class="col s12 center-align">
-                            <!--Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
-                            <div>Firebase auth <code>currentUser</code> object value:</div>
-                            <pre><code id="quickstart-account-details">null</code></pre>
-                            <div>Google OAuth Access Token:</div>
-                            <pre><code id="quickstart-oauthtoken">null</code></pre>-->
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col s12 center-align">
                             <a id="btn-menu-test" class="btn waves-effect waves-light blue-grey">Test Mode</a>
@@ -95,7 +87,13 @@
                 </div>
 
                 <div id="view-settings" class="view" hidden>
-                    
+                    <h1>User Settings</h1>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="Test Mode Shots" id="settings-test-mode-shots" type="text">
+                            <label for="settings-test-mode-shots">Test Mode Shot Count</label>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="view-stats" class="view" hidden>

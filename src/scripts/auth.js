@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         // var uid = user.uid;
         // var providerData = user.providerData;
 
-        app.saveUserData(user.uid, user.displayName, user.email);
+        app.saveUserData(user.uid, user.displayName, user.email, app.globalSettings, app.globalClubs);
 
         //app.container.querySelector('#quickstart-sign-in-status').textContent = "Signed in";
         //console.log(JSON.stringify(user, null, '   '));

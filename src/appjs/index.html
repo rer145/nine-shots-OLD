@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nine Shots</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+        <link rel="stylesheet" href="app.min.css" />
+        <style>
+            .app-content {
+                padding-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- pages -->
+        <div class="app-page" data-page="splash">
+            <div class="app-topbar">
+                <div class="app-title">Nine Shots</div>
+            </div>
+            <div class="app-content">
+                <div class="app-button green" id="google-sign-in">Google Sign In</div>
+            </div>
+        </div>
+        
+        <div class="app-page" data-page="home">
+            <div class="app-topbar">
+                <div class="app-title">Nine Shots</div>
+            </div>
+            <div class="app-content">
+                <ul class="app-list app-section">
+                    <li class="app-button" data-target="test">Begin Test</li>
+                    <li class="app-button" data-target="practice">Practice Mode</li>
+                </ul>
+                <ul class="app-list app-section">
+                    <li class="app-button" data-target="stats">Stats</li>
+                    <li class="app-button" data-target="settings">Settings</li>
+                </ul>
+                <ul class="app-list app-section">
+                    <li class="app-button" id="sign-out">Logout</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="app-page" data-page="test">
+            <div class="app-topbar">
+                <div class="app-title">Nine Shots</div>
+            </div>
+            <div class="app-content">
+                
+            </div>
+        </div>
+        
+        <div class="app-page" data-page="practice">
+            <div class="app-topbar">
+                <div class="app-title">Nine Shots</div>
+            </div>
+            <div class="app-content">
+                
+            </div>
+        </div>
+        
+        <div class="app-page" data-page="stats">
+            <div class="app-topbar">
+                <div class="app-button left" data-back>Back</div>
+                <div class="app-title">Nine Shots</div>
+            </div>
+            <div class="app-content">
+                <h3>Recent Test Scores</h3>
+                <ul class="app-list app-section">
+                    <li class="app-button" data-target="test-stats" data-target-args='{"id": 1}'>3/27/2017 - 83</li>
+                    <li class="app-button" data-target="test-stats" data-target-args='{"id": 2}'>3/27/2017 - 83</li>
+                    <li class="app-button" data-target="test-stats" data-target-args='{"id": 3}'>3/27/2017 - 83</li>
+                    <li class="app-button" data-target="test-stats" data-target-args='{"id": 4}'>3/27/2017 - 83</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="app-page" data-page="test-stats">
+            <div class="app-topbar">
+                <div class="app-button left" data-back>Back</div>
+                <div class="app-title">Nine Shots</div>
+            </div>
+            <div class="app-content">
+                Current test id: <span id="test-id"></span>
+            </div>
+        </div>
+        
+        <div class="app-page" data-page="settings">
+            <div class="app-topbar">
+                <div class="app-title">Nine Shots</div>
+            </div>
+            <div class="app-content">
+                
+            </div>
+        </div>
+        
+        <div class="app-page" data-page="sign-out">
+            <div class="app-topbar">
+                <div class="app-title">Nine Shots</div>
+            </div>
+            <div class="app-content">
+                
+            </div>
+        </div>
+
+        <script src="//code.jquery.com/jquery-1.9.0.js"></script>
+        <script type="text/javascript" src="../scripts/firebase-3.6.8.min.js"></script>
+        <script src="app.min.js"></script>
+        <script src="nine-shots.js"></script>
+        <script>
+            nineShotsApp.init();
+        </script>
+    </body>
+</html>

@@ -65,10 +65,15 @@ if (app.globalClubs == null) {
 }
 
 
-app.saveUserData = function(uid, name, email) {
-    firebase.database().ref('/users/' + uid).set({
+app.saveUserData = function(uid, name, email, settings, clubs) {
+    var user = {
         uid: uid,
         username: name,
-        email: email
-    });
+        email: email,
+        settings: settings,
+        clubs: clubs
+    };
+    app.currentUser = firebase.database().ref('/users/' + uid);
+    app.currentUser.set(user);
+    
 };

@@ -31,7 +31,8 @@
         userClubs: null,
         userLog: null,
 
-        currentUserId: null
+        currentUserId: null,
+        currentUser: null
     };
 
     app.init = function() {
@@ -82,6 +83,10 @@
     app.showSettings = function() {
         app.container.querySelector('.view').setAttribute('hidden', true);
         app.viewSettings.removeAttribute('hidden');
+
+        console.log(app.currentUser.child('settings').child('testModeShots'));
+        app.container.querySelector('#settings-test-mode-shots').value = app.currentUser.child('settings/testModeShots').value;
+        Materialize.updateTextFields();
     };
 
     app.init();
