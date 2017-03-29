@@ -24,7 +24,7 @@ nineShotsApp.init = function() {
         App.restore({ maxAge: 5*60*1000 });     //only attempt restore from last 5 minutes (milliseconds)
     }
     catch (err) {
-        App.load('splash');
+        App.load('loading');
     }
 };
 

@@ -1,4 +1,4 @@
-App.controller('splash', function(page) {
+App.controller('loading', function(page) {
     //check authentication status
     //show sign in if not authenticated
     //show homepage if authenticated
@@ -12,7 +12,7 @@ App.controller('splash', function(page) {
                 firebase.auth().signInWithRedirect(provider);
             } else {
                 firebase.auth().signOut();
-                App.load('splash');
+                App.load('loading');
             }
         });
 });
@@ -22,7 +22,7 @@ App.controller('home', function(page) {
         .find('#sign-out')
         .on('click', function() {
             firebase.auth().signOut();
-            App.load('splash');
+            App.load('loading');
         });
 });
 

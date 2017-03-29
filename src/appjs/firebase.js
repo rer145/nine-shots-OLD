@@ -27,7 +27,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     } else {
         nineShotsApp.currentUserId = null;
         nineShotsApp.currentUser = null;
-        App.load('splash');
+        App.load('loading');
     }
 });
 
