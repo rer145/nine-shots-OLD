@@ -48,36 +48,176 @@
         <div class="app-page" data-page="test">
             <div class="app-topbar">
                 <div class="app-button left" data-back>Back</div>
-                <div class="app-title">Nine Shots</div>
+                <div class="app-title">
+                    <span id="current-shot-number">1</span> / 
+                    <span id="total-shot-number">30</span>
+                </div>
             </div>
             <div class="app-content">
-                
+                <h2 id="current-club">Driver</h2>
+                <h3>
+                    <span id="current-trajectory">Low</span> 
+                    <span id="current-shape">Fade</span>
+                </h3>
+                <ul class="app-list app-section">
+                    <li class="app-button">Hit Target</li>
+                    <li class="app-button">Trajectory</li>
+                    <li class="app-button">Shape</li>
+                    <li class="app-button">Mental</li>
+                </ul>
+                <div class="app-section">
+                    <div id="test-submit-button" class="app-button" data-target="">Next Shot</div>
+                </div>
             </div>
         </div>
         
         <div class="app-page" data-page="practice">
             <div class="app-topbar">
                 <div class="app-button left" data-back>Back</div>
-                <div class="app-title">Nine Shots</div>
+                <div class="app-title">Practice</div>
             </div>
             <div class="app-content">
-                
+                TBD
             </div>
         </div>
         
         <div class="app-page" data-page="stats">
             <div class="app-topbar">
                 <div class="app-button left" data-back>Back</div>
-                <div class="app-title">Nine Shots</div>
+                <div class="app-title">Stats</div>
             </div>
             <div class="app-content">
-                <h3>Recent Test Scores</h3>
+                <div class="app-section">
+                    <div class="app-button" data-target="stats-tests">Test Scores</div>
+                    <div class="app-button" data-target="stats-clubs">Club Stats</div>
+                    <div class="app-button" data-target="stats-shots">Shot Stats</div>
+                </div>
+                <!--<h3>Recent Test Scores</h3>
                 <ul class="app-list app-section">
                     <li class="app-button" data-target="test-stats" data-target-args='{"id": 1}'>3/27/2017 - 83</li>
                     <li class="app-button" data-target="test-stats" data-target-args='{"id": 2}'>3/27/2017 - 83</li>
                     <li class="app-button" data-target="test-stats" data-target-args='{"id": 3}'>3/27/2017 - 83</li>
                     <li class="app-button" data-target="test-stats" data-target-args='{"id": 4}'>3/27/2017 - 83</li>
+                </ul>-->
+            </div>
+        </div>
+
+        <div class="app-page" data-page="stats-tests">
+            <div class="app-topbar">
+                <div class="app-button left" data-back>Back</div>
+                <div class="app-title">Test Scores</div>
+            </div>
+            <div class="app-content">
+                <ul class="app-list app-section">
+                    <li class="app-button" data-target="stats-test-detail" data-target-args='{"id": 1}'>3/27/2017 - 83</li>
+                    <li class="app-button" data-target="stats-test-detail" data-target-args='{"id": 2}'>3/27/2017 - 83</li>
+                    <li class="app-button" data-target="stats-test-detail" data-target-args='{"id": 3}'>3/27/2017 - 83</li>
+                    <li class="app-button" data-target="stats-test-detail" data-target-args='{"id": 4}'>3/27/2017 - 83</li>
                 </ul>
+            </div>
+        </div>
+
+        <div class="app-page" data-page="stats-test-detail">
+            <div class="app-topbar">
+                <div class="app-button left" data-back>Back</div>
+                <div class="app-title">Log</div>
+            </div>
+            <div class="app-content">
+                <div class="app-section">
+
+                </div>
+                <div class="app-section">
+                    <ul class="app-list">
+                        <li>Driver 9/9</li>
+                        <li>3W 7/9</li>
+                        <li>5W 6/9</li>
+                        <li>3I 9/9</li>
+                        <li>4I 9/9</li>
+                        <li>5I 9/9</li>
+                        <li>6I 9/9</li>
+                        <li>7I 9/9</li>
+                        <li>8I 9/9</li>
+                        <li>9I 9/9</li>
+                        <li>PW 9/9</li>
+                        <li>GW 9/9</li>
+                    </ul>
+                </div>
+                <div class="app-section">
+                    <div class="app-button" data-target="delete-test" data-target-args='{"id": 1}'>Delete Test</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-page" data-page="stats-clubs">
+            <div class="app-topbar">
+                <div class="app-button left" data-back>Back</div>
+                <div class="app-title">Clubs</div>
+            </div>
+            <div class="app-content">
+                <div class="app-section">
+                    <ul class="app-list">
+                        <li class="app-button" data-target="stats-club-detail" data-target-args='{"id": 1}'>Driver 9/9</li>
+                        <li class="app-button" data-target="stats-club-detail" data-target-args='{"id": 1}'>3W 7/9</li>
+                        <li class="app-button" data-target="stats-club-detail" data-target-args='{"id": 1}'>5W 6/9</li>
+                        <li class="app-button" data-target="stats-club-detail" data-target-args='{"id": 1}'>3I 9/9</li>
+                        <li class="app-button" data-target="stats-club-detail" data-target-args='{"id": 1}'>4I 9/9</li>
+                        <li class="app-button" data-target="stats-club-detail" data-target-args='{"id": 1}'>5I 9/9</li>
+                        <li class="app-button" data-target="stats-club-detail" data-target-args='{"id": 1}'>6I 9/9</li>
+                        <li class="app-button" data-target="stats-club-detail" data-target-args='{"id": 1}'>7I 9/9</li>
+                        <li class="app-button" data-target="stats-club-detail" data-target-args='{"id": 1}'>8I 9/9</li>
+                        <li class="app-button" data-target="stats-club-detail" data-target-args='{"id": 1}'>9I 9/9</li>
+                        <li class="app-button" data-target="stats-club-detail" data-target-args='{"id": 1}'>PW 9/9</li>
+                        <li class="app-button" data-target="stats-club-detail" data-target-args='{"id": 1}'>GW 9/9</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-page" data-page="stats-club-detail">
+            <div class="app-topbar">
+                <div class="app-button left" data-back>Back</div>
+                <div class="app-title"><span id="stats-club-name">Driver</span></div>
+            </div>
+            <div class="app-content">
+                <div class="app-section">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="app-page" data-page="stats-shots">
+            <div class="app-topbar">
+                <div class="app-button left" data-back>Back</div>
+                <div class="app-title">Shots</div>
+            </div>
+            <div class="app-content">
+                <ul class="app-list app-section">
+                    <li class="app-button" data-target="stats-shot-detail" data-target-args='{"id": 1}'>High Draw</li>
+                    <li class="app-button" data-target="stats-shot-detail" data-target-args='{"id": 2}'>Normal Draw</li>
+                    <li class="app-button" data-target="stats-shot-detail" data-target-args='{"id": 3}'>Low Draw</li>
+                </ul>
+                <ul class="app-list app-section">
+                    <li class="app-button" data-target="stats-shot-detail" data-target-args='{"id": 1}'>High Straight</li>
+                    <li class="app-button" data-target="stats-shot-detail" data-target-args='{"id": 2}'>Normal Straight</li>
+                    <li class="app-button" data-target="stats-shot-detail" data-target-args='{"id": 3}'>Low Straight</li>
+                </ul>
+                <ul class="app-list app-section">
+                    <li class="app-button" data-target="stats-shot-detail" data-target-args='{"id": 1}'>High Fade</li>
+                    <li class="app-button" data-target="stats-shot-detail" data-target-args='{"id": 2}'>Normal Fade</li>
+                    <li class="app-button" data-target="stats-shot-detail" data-target-args='{"id": 3}'>Low Fade</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="app-page" data-page="stats-shot-detail">
+            <div class="app-topbar">
+                <div class="app-button left" data-back>Back</div>
+                <div class="app-title"><span id="stats-shot-name">High Draw</span></div>
+            </div>
+            <div class="app-content">
+                <div class="app-section">
+
+                </div>
             </div>
         </div>
 
@@ -118,6 +258,8 @@
         <script type="text/javascript" src="../scripts/firebase-3.6.8.min.js"></script>
         <script src="app.min.js"></script>
         <script src="nine-shots.js"></script>
+        <script src="controllers.js"></script>
+        <script src="firebase.js"></script>
         <script>
             nineShotsApp.init();
         </script>
