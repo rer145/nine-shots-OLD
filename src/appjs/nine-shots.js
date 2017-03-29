@@ -12,7 +12,10 @@ firebase.initializeApp(fbConfig);
 
 var nineShotsApp = {
     currentUserId: null,
-    currentUser: null
+    currentUser: null,
+
+    globalSettings: null,
+    globalClubs: null
 };
 
 nineShotsApp.init = function() {
@@ -23,6 +26,19 @@ nineShotsApp.init = function() {
     catch (err) {
         App.load('splash');
     }
+};
+
+nineShotsApp.saveUserData = function(uid, name, email, settings, clubs) {
+    //check to make sure user doesn't already have settings and clubs set before overriding
+    var user = {
+        uid: uid,
+        username: name,
+        email: email,
+        settings: settings,
+        clubs: clubs
+    };
+    app.currentUser = firebase.database().ref('/users/' + uid);
+    app.currentUser.set(user);
 };
 
 
@@ -71,11 +87,31 @@ App.controller('test-stats', function(page, args) {
         .text(args.id);
 });
 
+App.controller('clubs', function(page) {
+    var $list = $(page).find('#clubs-list');
+    var clubs = nineShotsApp.globalClubs;
+    clubs.forEach(function (c) {
+        var $club = document.createElement('li');
+        $club.classList.add('app-button');
+        $club.classList.add('club-list-button');
+        $club.setAttribute('display', c.display);
+        $club.innerText = c.display;
+        $list.append($club);
+    });
+
+    $(page)
+        .find('.club-list-button')
+        .on('click', function() {
+            console.log(this.getAttribute('display'));
+            //TODO: toggle on/off status and checkmar icon
+        });
+});
 
 
 
 
 
+/***************** FIREBASE AUTH ********************/
 firebase.auth().getRedirectResult().then(function(result) {
     if (result.credential) {
         var token = result.credential.accessToken;
@@ -99,11 +135,51 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         nineShotsApp.currentUserId = user.uid;
         nineShotsApp.currentUser = user;
-        //save user data?
+        nineShotsApp.saveUserData(user.uid, user.displayName, user.email, nineShotsApp.globalSettings, nineShotsApp.globalClubs);
         App.load('home');
     } else {
         nineShotsApp.currentUserId = null;
         nineShotsApp.currentUser = null;
         App.load('splash');
     }
+});
+
+
+/***************** FIREBASE DB ********************/
+firebase.database().ref('/settings').on('value', function(data) {
+    nineShotsApp.globalSettings = data.val();
+    console.log('global settings set');
+});
+firebase.database().ref('/settings').on('child_added', function(data) {
+    console.log('settings data added');
+});
+firebase.database().ref('/settings').on('child_changed', function(data) {
+    console.log('settings data changed');
+});
+firebase.database().ref('/settings').on('child_removed', function(data) {
+    console.log('settings data removed');
+});
+
+firebase.database().ref('/clubs').on('value', function(data) {
+    nineShotsApp.globalClubs = data.val();
+    console.log('global clubs set');
+});
+firebase.database().ref('/clubs').on('child_added', function(data) {
+    console.log('clubs data added');
+});
+firebase.database().ref('/clubs').on('child_changed', function(data) {
+    console.log('clubs data changed');
+});
+firebase.database().ref('/clubs').on('child_removed', function(data) {
+    console.log('clubs data removed');
+});
+
+firebase.database().ref('/users').on('child_added', function(data) {
+    console.log('users data added');
+});
+firebase.database().ref('/clubs').on('child_changed', function(data) {
+    console.log('users data changed');
+});
+firebase.database().ref('/clubs').on('child_removed', function(data) {
+    console.log('users data removed');
 });

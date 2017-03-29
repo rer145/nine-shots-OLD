@@ -6,7 +6,11 @@
         <link rel="stylesheet" href="app.min.css" />
         <style>
             .app-content {
-                padding-top: 10px;
+                padding: 10px;
+            }
+
+            .app-topbar {
+                background-color: #336699;
             }
         </style>
     </head>
@@ -43,6 +47,7 @@
         
         <div class="app-page" data-page="test">
             <div class="app-topbar">
+                <div class="app-button left" data-back>Back</div>
                 <div class="app-title">Nine Shots</div>
             </div>
             <div class="app-content">
@@ -52,6 +57,7 @@
         
         <div class="app-page" data-page="practice">
             <div class="app-topbar">
+                <div class="app-button left" data-back>Back</div>
                 <div class="app-title">Nine Shots</div>
             </div>
             <div class="app-content">
@@ -87,19 +93,24 @@
         
         <div class="app-page" data-page="settings">
             <div class="app-topbar">
+                <div class="app-button left" data-back>Back</div>
                 <div class="app-title">Nine Shots</div>
             </div>
             <div class="app-content">
-                
+                <div class="app-section">
+                    <div class="app-button" data-target="clubs">Club Setup</div>
+                </div>
             </div>
         </div>
-        
-        <div class="app-page" data-page="sign-out">
+
+        <div class="app-page" data-page="clubs">
             <div class="app-topbar">
+                <div class="app-button left" data-back>Back</div>
                 <div class="app-title">Nine Shots</div>
             </div>
             <div class="app-content">
-                
+                <p>Click on each of the clubs you wish to include in test and practice modes.</p>
+                <ul id="clubs-list" class="app-list app-section"></ul>
             </div>
         </div>
 
